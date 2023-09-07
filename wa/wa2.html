@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<style> 
+/* I did style things to make it pretty */
+    h1 {
+      text-align: left;
+      font-size: 30px;
+      margin-right: 100px;
+      margin-left: 100px;
+    }
+
+    .aboutme{
+      line-height: 1.5;
+      margin-right: 100px;
+      margin-left: 100px;
+    }
+
+    table {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+    border-collapse: collapse;
+    }
+
+    td {
+    padding: 2px;
+    }
+    a, a:link, a:visited {
+    background-color: transparent;
+    text-decoration: underline;
+    }
+      img {
+        height: 100%;
+        width: 100%;
+        clip-path: polygon(50% 0%, 80% 10%, 100% 35%, 100% 70%, 80% 90%, 50% 100%, 20% 90%, 0% 70%, 0% 35%, 20% 10%);
+        /* I made my image in a polygon frame, so it is pretty */
+        opacity: .8;
+      }
+</style>
+<!-- REQUIRED FOR THIS ASSIGHNMENT BELOW PLUS SOME TABLES! I wanted the text to be next to the image so i made a table -->
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ari Guzzi</title>
+</head>
+<body>
+    <table>
+        <tr>
+          <td ALIGN=LEFT>
+            <!-- This header is my bold text style, and my paragraph is my normal -->
+            <h1 style="font-family: Baskerville" ><strong>Hey! I'm Ari Guzzi...</strong></h1>
+            <p class = "aboutme" style="font-family: Baskerville" > I go by she/her pronouns. I was born and raised in Boulder, Colorado.
+            I am currently a junior at CU Boulder getting a BS in Creative Technology and Design and a minor in Computer Science.
+            When I was 18, I did a semester abroad in France and then attended Tulane Univeristy in the spring. 
+            After a year, I decided to transfer to CU Boulder to major in Computer Science (it wasn't an option at Tulane as a primary major).
+            After a couple classes at CU, I decided I wanted to switch to CTD to focus on more front-end programming. 
+            I am excited to learn web design and mobile app development in this major. I am still getting a minor in CS.
+            My goals for this course is to able to make a website that looks nice, works well on mobile and desktop devices, and 
+            stands out. I tried making a website over the summer, but it just looks like an amateur scrapbook.
+                <br><br>
+            <!-- My link is italized for my 3rd text style -->
+            My favorite youtube video right now is <a href="https://youtu.be/Y7_h7E_RG8I?si=1MtnazUqb7qbwCwQ"> <i>"Immature Child Refuses To Grow Up | Financial Audit."</i></a> 
+            It's a financial advisor trying to help this man-child manage his money. It is so funny!
+            </p>
+            </td>
+          <td ALIGN=CENTER> <div class="frame">
+            <!-- relative source -->
+            <img src="../img/profilepicbw.png" alt="Me">
+          </div> </td> 
+        </div></tr>
+    </table>
+
+
+</body>
+</html>
