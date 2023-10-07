@@ -1,0 +1,11 @@
+.pizza {
+    position: relative;
+    width: 300px; /* Adjust this to your desired width */
+    height: 200px; /* Adjust this to your desired height */
+  }
+
+  .overlay-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+  }
