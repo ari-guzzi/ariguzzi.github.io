@@ -1,0 +1,44 @@
+body {
+    background-color: green;
+}
+div{
+    background-color: blue;
+    color: white;
+    font: 5vw;
+    font-family: Arial, Helvetica, sans-serif;
+    padding: 5vw;
+    margin: 2.5vw;
+    border: yellow 5px solid;
+}
+/* GRID */
+.div-wrapper{
+    display: grid;
+    grid-template-columns: 4fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+@media screen and (max-width: 900px) {
+    body {
+        background-color: red;
+    }
+    .div-wrapper{
+        display: flex;
+        flex-direction: column; 
+    }
+}
+
+
+/* FLEX
+.div-wrapper{
+    display: flex;
+}
+@media screen and (max-width: 900px) {
+    body {
+        background-color: red;
+    }
+    .div-wrapper{
+        display: flex;
+        flex-direction: column; /* flex is one dimensional (ie rows and columns) 
+    }
+}
+*/
+
