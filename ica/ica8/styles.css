@@ -73,9 +73,13 @@ body {
       grid-template-columns: 1fr;
 
     }
-    .nav ul{
+    nav ul {
       flex-direction: column;
-      grid-template-columns: 1fr;
+      align-items: center;
+    }
+  
+    nav li {
+      margin-bottom: .5rem;
     }
     
     .feature {
