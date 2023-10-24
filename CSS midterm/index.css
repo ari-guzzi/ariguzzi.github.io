@@ -13,35 +13,57 @@ body{
 
 h1 {
     text-align: center;
-    font-size: 3.5em;
+    font-size: 4em;
     color: #572a79;
-    font-family: 'Garamond', sans-serif;
+    font-family: 'Dancing Script';
     z-index: 1;
+  }
+  h2{
+    font-family: 'Dancing Script';
+    margin:1vw;
+    font-size: 1.7em;
   }
  
   h3{
+    font-family: 'Dancing Script';
+    font-weight: 700;
+    font-size: 1.7em;
     margin-bottom: 1rem;
   }
   h4{
     margin:0;
+    font-family: 'Quicksand';
+  }
+
+  h5{
+    font-family: 'Quicksand';
+    font-weight: 700;
+    font-size: 1.2em;
+    margin:0;
   }
 
   p {
-    font-family: 'Garamond', sans-serif;
+    font-family: 'Quicksand';
+    font-size: 1.2em;
+    margin:1vw;
 }
 .grid {
     display: grid;
-    grid-template-columns: 3fr 1fr;
-    grid-column-gap: 2rem;
+    grid-template-columns: 1fr 2fr;
+    grid-column-gap: 2.2rem;
+    justify-content: center;
+    font-family: 'Quicksand';
   }
 
 .article, .aside{
     width: fit-content;
+    font-family: 'Quicksand';
    }
    
 
 /* Nav Bar */
   body .topnav {
+    font-family: 'Quicksand';
     text-align: center;
     background-color: #fff;
     overflow: hidden;
@@ -58,7 +80,7 @@ h1 {
       text-align: center;
       padding: .3em 1em;
       text-decoration: none;
-      font-size: 1.3em;
+      font-size: 1.5em;
     }
 
     .topnav a:hover {
@@ -134,7 +156,10 @@ h1 {
         padding: 1vw 1vw 1vw 1vw; 
         text-decoration: none;
         color: #572a79;
+        font-weight: bold;
+        font-size: larger;
       }
+
 
       /* footer */
 
@@ -145,26 +170,29 @@ h1 {
           justify-content: space-between;
           height:15rem;
           width: 100%;
+          font-family: 'Quicksand';
       }
 
       .contact-info, .links {
           text-align: center;
           margin: 0 10rem 0 0; 
           flex-basis: 100%;
-
+          
       }
-
+h6{
+    margin:0;
+    font-size:4.2em;
+}
       .centered-logo {
-        font-size:3em;
         color: #9a7eac;
           text-align: center;
           flex: 1;
           flex-basis: 100%;
-
+          font-family: 'Dancing Script';
       }
 
       footer a {
-        font-size: 1.2em;
+        font-size: 1.15em;
           text-decoration: none;
           color: #fff;
           margin: 0 1rem 0 0;
@@ -175,6 +203,7 @@ h1 {
         position: relative;
         height: 137px;
         opacity: 0.8;
+      
         
     }
     
@@ -198,7 +227,7 @@ h1 {
     .path-image {
         z-index: 2;
         position: absolute;
-        bottom: 140px;
+        bottom: 20px;
         left: 0%;
         animation: moveUpDown 3s infinite;
         max-height: 100%;
@@ -206,7 +235,7 @@ h1 {
     .path-image2 {
         z-index: 2;
         position: absolute;
-        bottom: 140px;
+        bottom: 30px;
         left: 80%;
         animation: moveDownUp 3s infinite;
         max-height: 100%;
@@ -215,12 +244,24 @@ h1 {
     /* Media Query */
 
       @media screen and (max-width: 400px) {
+        h1{
+            font-size: 2em;
+        }
+        h2{
+            font-size: 1.5em;
+        }
+        h3{
+            font-size: 1.4em;
+        }
+        h4{
+            margin-bottom: 2vw;
+        }
         .grid {
             flex-direction: column;
             grid-template-columns: 1fr;
           }
           .topnav a {
-            font-size: 1em; 
+            font-size: .8em; 
             display: flex;
             justify-content: center;
             align-items: center;
@@ -229,12 +270,20 @@ h1 {
             width: 100%;
           }
           .contact-info, .links {
-            font-size: .5em;
+            font-size: .4em;
             margin: 0 0 0 .5rem; 
           }
           .centered-logo{
             font-size: 1em;
             margin: 0 0 0 -.5rem;
+          }
+          .path-image {
+            max-height: 50%;
+            left: 45%;
+          }
+          .path-image2 {
+            max-height: 50%;
+            left: 15%;
           }
       }
       
