@@ -271,11 +271,11 @@ h6{
             width: 100%;
           }
           .contact-info, .links {
-            font-size: .4em;
+            font-size: .6em;
             margin: 0 0 0 .5rem; 
           }
           .centered-logo{
-            font-size: 1em;
+            font-size: .6em;
             margin: 0 0 0 -.5rem;
           }
           .path-image {
@@ -285,6 +285,9 @@ h6{
           .path-image2 {
             max-height: 50%;
             left: 15%;
+          }
+          p{
+            font-size: 1em;
           }
       }
       
