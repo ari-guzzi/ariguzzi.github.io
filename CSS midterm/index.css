@@ -16,6 +16,7 @@ h1 {
     font-size: 3.5em;
     color: #572a79;
     font-family: 'Garamond', sans-serif;
+    z-index: 1;
   }
  
   h3{
@@ -169,7 +170,48 @@ h1 {
           margin: 0 1rem 0 0;
       }
     
-      
+      /* Music Notes */
+      .path-container {
+        position: relative;
+        height: 137px;
+        
+    }
+    
+    @keyframes moveUpDown {
+        0%, 100% {
+            transform: translateY(0);
+        }
+        50% { 
+            transform: translateY(20px); 
+        }
+    }
+    @keyframes moveDownUp {
+        0%, 100% {
+            transform: translateY(20px);
+        }
+        50% { 
+            transform: translateY(0); 
+        }
+    }
+
+    .path-image {
+        z-index: 2;
+        position: absolute;
+        bottom: 140px;
+        left: 0%;
+        animation: moveUpDown 3s infinite;
+        max-height: 100%;
+    }
+    .path-image2 {
+        z-index: 2;
+        position: absolute;
+        bottom: 140px;
+        left: 80%;
+        animation: moveDownUp 3s infinite;
+        max-height: 100%;
+    }
+
+    /* Media Query */
 
       @media screen and (max-width: 400px) {
         .grid {
