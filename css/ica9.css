@@ -1,9 +1,9 @@
 h1, .instructions {
     text-align: center;
 }
-.ica9rules{
+/*.ica9rules{
     text-align: left;
-}
+}*/
 .ball, .inside, .triangle, .answer{
     position:absolute;
 }
