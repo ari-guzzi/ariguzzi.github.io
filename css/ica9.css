@@ -1,16 +1,19 @@
-h1{
+h1, .instructions {
     text-align: center;
 }
-
+.ica9rules{
+    text-align: left;
+}
+.ball, .inside, .triangle, .answer{
+    position:absolute;
+}
 .ball {
     height: 40vw;
     width: 40vw;
     background-color: #000;
     border-radius: 50%;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
+    top: 15%;
+    left: 30%;
     z-index: 1;
   }
 
@@ -19,20 +22,14 @@ h1{
     width: 25vw;
     background-color: #fff;
     border-radius: 50%;
-    position: absolute;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
     z-index: 2;
-    display: flex;
-  justify-content: center;
-  align-items: center;
   }
 
   .triangle {
-    position:absolute;
-    width: 0;
-    height: 0;
+    transform: translate(15%, 27%);
     border-left: 9.5vw solid transparent;
     border-right: 9.5vw solid transparent;
     border-top: 16.44vw solid red;
@@ -40,20 +37,19 @@ h1{
   }
 
   .answer {
-    position:absolute;
     width:14%;
     top:50%;
     left:50%;
-    margin-top:-60px;
-    margin-left:-100px;
+    margin-top:-6vw;
+    margin-left:-7vw;
     font: 16px 'Open Sans', Helvetica, Arial, sans-serif;
-    color: #222;
+    color: #000;
     text-transform: uppercase;
     text-align: center;
     z-index: 4;
   }
 
-  #questionButton,#shake {
+  #questionButton {
     border-radius: 5px;
     border: none;
     color: #fff;
@@ -66,34 +62,26 @@ h1{
     transform: translate(-50%, -50%);
   }
 
-  #shake {
-    top: 12%; 
-    left: 50%;
-  }
-
   #questionButton:hover {
     box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.5);  
 }
 
 @keyframes shake {
     10%, 90% {
-        transform: translate3d(-1px, 0, 0);
-      }
-      
-      20%, 80% {
-        transform: translate3d(2px, 0, 0);
-      }
-    
-      30%, 50%, 70% {
-        transform: translate3d(-4px, 0, 0);
-      }
-    
-      40%, 60% {
-        transform: translate3d(4px, 0, 0);
-      }
+        transform: translateX(-2px);
+    }
+    20%, 80% {
+        transform: translateX(4px);
+    }
+    30%, 50%, 70% {
+        transform: translateX(-8px);
+    }
+    40%, 60% {
+        transform: translateX(8px);
+    }
 }
 
-.ball.shake, .inside.shake, .triangle.shake, .answer.shake {
-    animation: shake 0.82s cubic-bezier(.36,.07,.19,.97) both;
-    transform: translate3d(0, 0, 0);
+.ball.shake, .answer.shake {
+    animation: shake 0.82s;
+    animation-iteration-count: infinite;
 }

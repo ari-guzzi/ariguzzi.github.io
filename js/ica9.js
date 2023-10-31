@@ -23,12 +23,17 @@ $(document).ready(function() {
       "Very doubtful"
     ];
     $("#answer").hide();
+    
 
     magic8Ball.askQuestion = function() {
         $("#answer").fadeIn(4000);
         var randomIndex = Math.floor(Math.random() * this.answerList.length);
         var answer = this.answerList[randomIndex];
         $("#answer").text(answer);
+        
+        setTimeout(function() {
+            $("#answer").fadeOut(2000); 
+        }, 2000);
     };
 
     var onClick = function() {
@@ -38,16 +43,16 @@ $(document).ready(function() {
    
     function startVibration() {
         var elementsToVibrate = document.querySelectorAll('.ball, .inside, .triangle, .answer');
-        
+            
         elementsToVibrate.forEach(function(element) {
             element.classList.add('shake');
-            
+                
             setTimeout(function() {
                 element.classList.remove('shake');
             }, 500);
         });
     }
-
+    
     $("#questionButton").click(function() {
         magic8Ball.askQuestion();
         startVibration();
