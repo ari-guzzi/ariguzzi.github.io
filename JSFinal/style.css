@@ -1,0 +1,273 @@
+body {
+    margin: 0;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: #f0f0f0;
+    cursor: none;
+  }
+  
+  .container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    }
+  
+/* AVATAR */
+
+#stick-figure {
+    position: absolute;
+    bottom: 20%;
+    left: 5%;
+  }
+  
+  .head {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: black;
+  }
+  
+  .body {
+    width: 5px;
+    height: 80px;
+    background-color: black;
+    position: absolute;
+    top: 50px;
+    left: 23px;
+  }
+  
+  .left-arm,
+  .right-arm,
+  .left-leg,
+  .right-leg {
+    width: 60px;
+    height: 5px;
+    background-color: black;
+    position: absolute;
+  }
+  
+  .left-arm {
+    top: 73px;
+    left: -30px;
+    transform-origin: top right;
+    transform: rotate(45deg);
+  }
+  
+  .right-arm {
+    top: 70px;
+    left: 25px;
+    transform-origin: top left;
+  }
+  
+  .left-leg {
+    width: 5px;
+    height: 60px;
+    background-color: black;
+    position: absolute;
+    top: 7.11rem;
+    left: -.4rem;
+    transform-origin: bottom;
+    transform: rotate(30deg);
+  }
+  
+  .right-leg {
+    width: 5px;
+    height: 60px;
+    background-color: black;
+    position: absolute;
+    top: 7.11rem;
+    left: 3.2rem;
+    transform-origin: bottom;
+    transform: rotate(-30deg);
+  }
+
+
+
+.weapon {
+  position: absolute;
+  width: 100px; 
+  height: 50px;
+  background-image: url(weapon.jpg);
+  background-size: contain;
+  position: absolute;
+  top: 50px;
+  left: 60px;
+}
+
+
+  /* Balloons */
+
+.balloon {
+    width: 50px;
+    height: 50px;
+    background-color: red; 
+    border-radius: 50%;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    color: white;
+    animation: rotateBalloon 10s linear infinite; /* Rotate animation */
+  }
+  
+  
+  .balloon-text {
+    z-index: 1;
+  }
+
+  /* Text Lines */
+
+
+/* .number-lines {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: flex-end;
+    height: 20px;
+  }
+  
+  .number-line {
+    width: 20px; 
+    height: 2px; 
+    background-color: black;
+    margin: 0 4px; 
+  } */
+  
+  /* cursor */
+  .cursor-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+    z-index: 999;
+  }
+  
+  .target-cursor {
+    width: 30px;
+    height: 30px;
+    border: 2px solid lightsalmon;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .vertical-line, .horizontal-line {
+    position: absolute;
+    background-color: lightsalmon;
+    z-index: 999;
+  }
+  
+  .vertical-line {
+    top: 50%;
+    left: 50%;
+    width: 2px;
+    height: 20px; 
+    margin-left: -.5px;
+    transform-origin: top;
+  }
+  
+  .horizontal-line {
+    top: 50%;
+    left: 50%;
+    height: 2px;
+    width: 20px;
+    margin-top: -1px;
+    transform-origin: left;
+  }
+  
+  /* shooting */
+  .ball {
+    /* Your ball's styles */
+    position: absolute;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: red;
+    z-index: 998;
+  }
+
+  .bottom-container {
+    position: fixed;
+    bottom: 20px; /* Adjust as needed */
+    left: 50%; /* Center horizontally */
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .number-display {
+    margin: 0 5px; /* Adjust spacing between numbers */
+    font-size: 5em;
+  }
+
+  .clear-button {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    /* Additional styling */
+    padding: 10px 20px;
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .clear-button:hover {
+    background-color: red;
+  }
+
+  .check {
+    position: fixed;
+    bottom: 20px;
+    right: 110px;
+    /* Additional styling */
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+
+  .check:hover {
+    background-color: darkgreen;
+  }
+
+
+  .modal-container {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6); /* Semi-transparent overlay */
+    justify-content: center;
+    align-items: center;
+    z-index: 400;
+  }
+  
+  .modal {
+    background-color: white;
+    padding: 20px;
+    border-radius: 5px;
+    text-align: center;
+    z-index: 400;
+  }
+
+  .numbers-list {
+    display: flex;
+    flex-direction: row;
+    gap: 5px; /* Adjust spacing */
+    z-index: 400;
+  }
