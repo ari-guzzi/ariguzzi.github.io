@@ -258,6 +258,7 @@ function restart(){
   const modal = document.querySelector('.new-modal');
   modal.style.display = 'none';
   closeModal();
+  clearNumbersInModal()
 }
 
 
