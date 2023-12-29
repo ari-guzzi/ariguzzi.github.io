@@ -1,3 +1,4 @@
+/****** MAKE BALLOONS WITH NUMBERS ON THEM *********/
 document.addEventListener("DOMContentLoaded", function() {
     const container = document.querySelector('.container');
     const balloons = document.getElementById('balloons');
@@ -40,8 +41,8 @@ document.addEventListener("DOMContentLoaded", function() {
  //spin balloons
   
   
+/****** HAVE WEAPON FOLLOW CURSOR *********/
 
-  // have weapon follow cursor
   document.addEventListener("DOMContentLoaded", function() {
     const rightArm = document.querySelector('.right-arm');
     const weapon = document.querySelector('.weapon');
@@ -66,31 +67,9 @@ document.addEventListener("DOMContentLoaded", function() {
     });
   });
   
-  
-  
-  
-  // lines
 
-  document.addEventListener("DOMContentLoaded", function() {
-    const numberLinesContainer = document.querySelector('.number-lines');
-    const stickFigure = document.getElementById('stick-figure');
-  
-    // Create 10 number lines at the bottom of the screen
-    for (let i = 0; i < 10; i++) {
-      const numberLine = document.createElement('div');
-      numberLine.classList.add('number-line');
-      numberLinesContainer.appendChild(numberLine);
-    }
-  
-    // Position the number lines near the stick figure
-    const stickFigureRect = stickFigure.getBoundingClientRect();
-    const stickFigureCenterY = stickFigureRect.top + stickFigureRect.height;
-  
-    numberLinesContainer.style.top = `${stickFigureCenterY}px`;
-  });
-  
+/****** CHANGE CURSOR TO LOOK LIKE A TARGET *********/
 
-  // change cursor to target
   const cursorContainer = document.querySelector('.cursor-container');
   const verticalLine = document.querySelector('.vertical-line');
   const horizontalLine = document.querySelector('.horizontal-line');
@@ -109,7 +88,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
   window.addEventListener('mousemove', moveCursor);
 
-  //SHOOTING
+/****** SHOOTING *********/
 
   function shootBall(e) {
     
@@ -170,7 +149,7 @@ document.addEventListener("DOMContentLoaded", function() {
     );
   }
   
- // MAKE THE NUMBERS APPEAR AT THE BOTTOM
+  /****** MAKE THE NUMBERS APPEAR AT THE BOTTOM AFTER SHOT AT *********/
 
 function displayNumberAtBottom(number) {
   const bottomContainer = document.querySelector('.bottom-container');
@@ -199,8 +178,7 @@ const clearButton = document.querySelector('.clear-button');
 clearButton.addEventListener('click', clearAllNumbers);
 
 
-
-//CREATE A POPUP WINDOW FOR SUBMITTING OR GOING BACK
+/****** CREATE A POPUP WINDOW FOR SUBMITTING OR GOING BACK *********/
 
 
 function showModal() {
@@ -231,11 +209,6 @@ function clearNumbersInModal() {
   const numbersList = document.querySelector('.numbers-list');
   numbersList.innerHTML = ''; // Clear numbers in the modal
 }
-function closeModal() {
-  // Logic to hide or close the modal
-  const modal = document.querySelector('.modal-container');
-  modal.style.display = 'none'; // For example, hiding the modal
-}
 
 
 document.querySelector('.go-back-button').addEventListener('click', function() {
@@ -258,7 +231,35 @@ function getNumbers() {
 function submitNumbers() {
   const numbers = getNumbers();
   console.log('Numbers submitted:', numbers);
+  openNewPopup();
+  //closeModal();
+  
 }
+
+function closeModal() {
+  // Logic to hide or close the modal
+  const modal = document.querySelector('.modal-container');
+  modal.style.display = 'none'; // For example, hiding the modal
+}
+
+function openNewPopup() {
+  const newModal = document.querySelector('.new-modal');
+  const message = document.createElement('p');
+  message.textContent = 'Yay! You submitted your phone number. It is posted to the console.';
+  newModal.appendChild(message);
+  newModal.style.display = 'block';
+}
+
+document.querySelector('.submit-button').addEventListener('click', submitNumbers);
+document.querySelector('.restart').addEventListener('click', restart);
+
+
+function restart(){
+  const modal = document.querySelector('.new-modal');
+  modal.style.display = 'none';
+  closeModal();
+}
+
 
 
 
@@ -271,7 +272,8 @@ goBackButton.addEventListener('click', hideModal);
 const submitButton = document.querySelector('.submit-button');
 submitButton.addEventListener('click', submitNumbers);
 
-
+const restartButton = document.querySelector('.restart');
+restartButton.addEventListener('click', restarttNumbers);
   
   
   
