@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
   const balloonCount = 10; 
   const radius = 180;
   const balloonSize = 50; 
-  const orbitSpeed = 0.0015; 
+  const orbitSpeed = 0.0012; 
 
   function createBalloon(number) {
     const balloon = document.createElement('div');
