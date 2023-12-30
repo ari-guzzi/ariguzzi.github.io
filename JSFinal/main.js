@@ -1,44 +1,59 @@
 /****** MAKE BALLOONS WITH NUMBERS ON THEM *********/
+
 document.addEventListener("DOMContentLoaded", function() {
-    const container = document.querySelector('.container');
-    const balloons = document.getElementById('balloons');
-    const balloonCount = 10; // Adjust the number of balloons
-    
-    const radius = 180; // Adjust the radius of the circle
-    const angleIncrement = (Math.PI * 2) / balloonCount;
-    const balloonSize = 50; // Adjust the size of the balloon
-    
-    function createBalloon(number) {
-      const balloon = document.createElement('div');
-      balloon.classList.add('balloon');
-      
-      const balloonText = document.createElement('span');
-      balloonText.classList.add('balloon-text');
-      balloonText.textContent = number; // Set the number text
-      
-      balloon.appendChild(balloonText);
-      balloons.appendChild(balloon);
-      
-      return balloon;
+  const container = document.querySelector('.container');
+  const balloons = document.getElementById('balloons');
+  const balloonCount = 10; 
+  const radius = 180;
+  const balloonSize = 50; 
+  const orbitSpeed = 0.0015; 
+
+  function createBalloon(number) {
+    const balloon = document.createElement('div');
+    balloon.classList.add('balloon');
+
+    const balloonText = document.createElement('span');
+    balloonText.classList.add('balloon-text');
+    balloonText.textContent = number; // Set the number text
+
+    balloon.appendChild(balloonText);
+    balloons.appendChild(balloon);
+
+    return balloon;
+  }
+
+  // Create balloons in a full circle layout centered
+  for (let i = 0; i < balloonCount; i++) {
+    const balloon = createBalloon(i); 
+    const angle = (Math.PI * 2 * i) / balloonCount;
+
+    animateBalloon(balloon, angle);
+  }
+
+   /****** MAKE BALLOONS SPIN *********/
+
+  function animateBalloon(balloon, startAngle) {
+    const start = performance.now();
+
+    function update() {
+      const time = performance.now() - start;
+      const angle = startAngle + orbitSpeed * time;
+
+      //Math.cos(angle) * radius - calculates horizontal component of the circular motion
+      //container.offsetWidth / 2 centers the circle horizontally 
+      //balloonSize / 2 offsets the position by half the balloon's size, so the balloon's center is placed correctly
+      const x = Math.cos(angle) * radius + container.offsetWidth / 2 - balloonSize / 2;
+      const y = Math.sin(angle) * radius + container.offsetHeight / 2 - balloonSize / 2;
+
+      balloon.style.left = `${x}px`;
+      balloon.style.top = `${y}px`;
+
+      requestAnimationFrame(update);
     }
-  
-    const windowHeight = window.innerHeight; // Get the window height
-    const centerY = windowHeight * 0.3; // Set the balloons to be at 30% of the window height
-  
-    
-    // Create balloons in a full circle layout centered upwards
-    for (let i = 0; i < balloonCount; i++) {
-        const balloon = createBalloon(i); // Pass the number to createBalloon function
-        const angle = i * angleIncrement;
-        const x = Math.cos(angle) * radius;
-        const y = Math.sin(angle) * radius;
-      
-      balloon.style.left = `${x + (container.offsetWidth / 2) - (balloonSize / 2)}px`;
-      balloon.style.top = `${y + centerY - (balloonSize / 2)}px`;
-    }
-  });
-  
- //spin balloons
+
+    requestAnimationFrame(update);
+  }
+});
   
   
 /****** HAVE WEAPON FOLLOW CURSOR *********/
@@ -138,15 +153,15 @@ document.addEventListener("DOMContentLoaded", function() {
   }
 
   function isColliding(ball, balloon) {
-    const ballRect = ball.getBoundingClientRect();
-    const balloonRect = balloon.getBoundingClientRect();
+    const ballRect = ball.getBoundingClientRect();//getBoundingClientRect retrieves the position and dimensions of an element relative to the viewport.
+    const balloonRect = balloon.getBoundingClientRect();//getBoundingClientRect returns an object with properties like top, bottom, left, right
   
     return !(
       ballRect.right < balloonRect.left ||
       ballRect.left > balloonRect.right ||
       ballRect.bottom < balloonRect.top ||
       ballRect.top > balloonRect.bottom
-    );
+    ); // checking if the ball is within the designated area anywhere
   }
   
   /****** MAKE THE NUMBERS APPEAR AT THE BOTTOM AFTER SHOT AT *********/
@@ -226,7 +241,7 @@ function getNumbers() {
   return numbersArray;
 }
 
-
+/****** CREATE A POPUP WINDOW FOR SUBMITTING *********/
 
 function submitNumbers() {
   const numbers = getNumbers();
@@ -262,7 +277,7 @@ function restart(){
 }
 
 
-
+/****** BUTTONS *********/
 
 const checkButton = document.querySelector('.check');
 checkButton.addEventListener('click', showModal);

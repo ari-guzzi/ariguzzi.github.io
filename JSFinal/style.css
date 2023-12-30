@@ -6,8 +6,21 @@ body {
     align-items: center;
     background-color: #f0f0f0;
     cursor: none;
+    background-color: lightgray;
   }
-  
+  h1{
+    font-family: 'Western', sans-serif;
+    font-size: 50px;
+  }
+  h2{
+    font-family: 'Sofia Sans', sans-serif;
+    text-align: center;
+    margin-right: 850px;
+  }
+  h1, h2 {
+    display: block !important;
+  }
+
   .container {
     position: relative;
     width: 100%;
@@ -99,10 +112,10 @@ body {
 
   /* Balloons */
 
-.balloon {
+  .balloon {
     width: 50px;
     height: 50px;
-    background-color: red; 
+    background-color: red;
     border-radius: 50%;
     position: absolute;
     display: flex;
@@ -110,34 +123,27 @@ body {
     align-items: center;
     font-weight: bold;
     color: white;
+  }
+  
+  .rotate-animation {
     animation: rotateBalloon 10s linear infinite; /* Rotate animation */
   }
+  
+  @keyframes rotateBalloon {
+    from {
+      transform: rotate(0);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+  
   
   
   .balloon-text {
     z-index: 1;
   }
 
-  /* Text Lines */
-
-
-/* .number-lines {
-    position: absolute;
-    bottom: 10px;
-    left: 50%;
-    transform: translateX(-50%);
-    display: flex;
-    align-items: flex-end;
-    height: 20px;
-  }
-  
-  .number-line {
-    width: 20px; 
-    height: 2px; 
-    background-color: black;
-    margin: 0 4px; 
-  } */
-  
   /* cursor */
   .cursor-container {
     position: fixed;
@@ -183,8 +189,8 @@ body {
   }
   
   /* shooting */
+
   .ball {
-    /* Your ball's styles */
     position: absolute;
     width: 10px;
     height: 10px;
@@ -195,8 +201,8 @@ body {
 
   .bottom-container {
     position: fixed;
-    bottom: 20px; /* Adjust as needed */
-    left: 50%; /* Center horizontally */
+    bottom: 20px; 
+    left: 50%; 
     transform: translateX(-50%);
     display: flex;
     flex-direction: row;
@@ -205,15 +211,24 @@ body {
   }
   
   .number-display {
-    margin: 0 5px; /* Adjust spacing between numbers */
+    margin: 0 5px; 
     font-size: 5em;
   }
 
+  /* Buttons */
   .clear-button {
     position: fixed;
     bottom: 20px;
     right: 20px;
-    /* Additional styling */
+    
+    padding: 20px 40px;
+    background-color: lightcoral;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  .fake-clear-button {
     padding: 10px 20px;
     background-color: lightcoral;
     color: white;
@@ -226,12 +241,20 @@ body {
     background-color: red;
   }
 
+  .fake-check{
+    padding: 10px 20px;
+    background-color: green;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
   .check {
     position: fixed;
-    bottom: 20px;
-    right: 110px;
-    /* Additional styling */
-    padding: 10px 20px;
+    bottom: 19px;
+    right: 150px;
+   
+    padding: 20px 40px;
     background-color: green;
     color: white;
     border: none;
@@ -243,6 +266,7 @@ body {
     background-color: darkgreen;
   }
 
+/* popups */
 
   .modal-container {
     display: none;
@@ -268,7 +292,7 @@ body {
   .numbers-list {
     display: flex;
     flex-direction: row;
-    gap: 5px; /* Adjust spacing */
+    gap: 5px; 
     z-index: 400;
   }
 
