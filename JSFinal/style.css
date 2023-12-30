@@ -4,9 +4,9 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-color: #f0f0f0;
     cursor: none;
-    background-color: lightgray;
+    background-color: lightblue;
+    
   }
   h1{
     font-family: 'Western', sans-serif;
