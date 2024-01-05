@@ -105,8 +105,14 @@ document.addEventListener("DOMContentLoaded", function() {
 
 /****** SHOOTING *********/
 
+let allowShooting = true;
+
   function shootBall(e) {
     
+    if (!allowShooting) {
+      return; // Exit the function if the limit of 10 numbers is reached
+  }
+
     const weapon = document.querySelector('.weapon');
 
     const mouseX = e.clientX;
@@ -165,15 +171,26 @@ document.addEventListener("DOMContentLoaded", function() {
   }
   
   /****** MAKE THE NUMBERS APPEAR AT THE BOTTOM AFTER SHOT AT *********/
-
-function displayNumberAtBottom(number) {
-  const bottomContainer = document.querySelector('.bottom-container');
-  const numberDisplay = document.createElement('div');
-  numberDisplay.textContent = number;
-  numberDisplay.classList.add('number-display');
+ 
   
-  bottomContainer.appendChild(numberDisplay);
-}
+  function displayNumberAtBottom(number) {
+    const bottomContainer = document.querySelector('.bottom-container');
+    const displayedNumbers = document.querySelectorAll('.number-display').length;
+    const checkButton = document.querySelector('.check');
+  
+    if (displayedNumbers < 10) {
+      const numberDisplay = document.createElement('div');
+      numberDisplay.textContent = number;
+      numberDisplay.classList.add('number-display');
+      bottomContainer.appendChild(numberDisplay);
+  
+      if (displayedNumbers === 9) {  //only allow 10 numbers to be displayed
+        allowShooting = false;
+        checkButton.style.display = 'block';
+      }
+    }
+  }
+  
  
   document.addEventListener('click', function(e) {
     shootBall(e);
@@ -185,6 +202,12 @@ function clearAllNumbers() {
   numbersArray = [];
   const bottomContainer = document.querySelector('.bottom-container');
   bottomContainer.innerHTML = ''; // Remove all content inside bottom container
+
+  allowShooting = true; // Allow shooting again
+  const checkButton = document.querySelector('.check');
+  checkButton.style.display = 'none'; // Hide the check button again
+  numberOfBallsShot = 0; // Reset the number of shots taken
+  numberOfNumbersDisplayed = 0; // Reset the number of displayed numbers
 }
 
 
