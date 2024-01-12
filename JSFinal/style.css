@@ -11,14 +11,27 @@ body {
   h1{
     font-family: 'Western', sans-serif;
     font-size: 50px;
+    text-align: center;
+    
   }
   h2{
-    font-family: 'Sofia Sans', sans-serif;
+    margin-top: 20px;
     text-align: center;
-    margin-right: 850px;
   }
-  h1, h2 {
+  h2,h3{
+    font-family: 'Sofia Sans', sans-serif;
+    
+  }
+  h3{
+    margin-top:-23px;
+    text-align: center;
+    margin-right: 1000px;
+  }
+
+  h1, h2, h3 {
     display: block !important;
+    position: relative;
+    z-index: 99;
   }
 
   .container {
@@ -109,6 +122,50 @@ body {
   left: 60px;
 }
 
+/* Rotary Phone Decoration */
+.inner-circle {
+  width: 450px;
+  height: 450px;
+  border: 2px solid gray;
+  transform: scale(.6);
+  border-radius: 50%;
+  position: absolute;
+  top: 170px; 
+  left: 495px; 
+  z-index: 2;
+}
+
+.circle {
+  width: 450px;
+  height: 450px;
+  background-color: #fff;
+  opacity: 0.2;
+  border-radius: 50%;
+  position: absolute;
+  top: 170px; 
+  left: 495px; 
+  z-index: 2;
+}
+.phone-base {
+  width: 800px;
+  height: 450px;
+  clip-path: polygon(20% 0%, 80% 0%, 100% 100%, 0% 100%);
+  background-color: #9bacb2;
+  position: absolute;
+  top: 170px; 
+  left: 320px;
+  z-index: 1;
+}
+
+.phone img{
+  transform: scale(1.2); /* Increase size by 20% */
+  position:absolute;
+  top: 50px;
+  left: 400px;
+
+  z-index: 1;
+  opacity: 0.6;
+}
 
   /* Balloons */
 
@@ -123,6 +180,7 @@ body {
     align-items: center;
     font-weight: bold;
     color: white;
+    z-index: 3;
   }
   
   .rotate-animation {
@@ -142,7 +200,7 @@ body {
   
   .balloon-text {
     font-size: 20px;
-    z-index: 1;
+    z-index: 4;
   }
 
   /* cursor */
